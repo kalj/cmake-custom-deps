@@ -13,5 +13,6 @@ add_custom_command(OUTPUT "${my_output}"
 add_custom_target(mytarget DEPENDS
   "${my_output}")
 
-add_executable(nisse nisse.c "${my_output}")
+add_executable(nisse nisse.c)
 target_include_directories(nisse PRIVATE "${CMAKE_BINARY_DIR}")
+add_dependencies(nisse mytarget)
